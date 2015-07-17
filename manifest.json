@@ -1,0 +1,23 @@
+{
+  "manifest_version": 2,
+  "name": "Refresh the page on the image you want to download!",
+  "permissions": [
+  	"tabs",
+  	"downloads"
+  	],
+  "version": "1.0",
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://instagram.com/p/*"
+      ],
+      "js": ["jquery-2.1.4.min.js", "content.js"]
+    }
+  ],
+  "browser_action": {
+    "default_icon": "ig-dl.png"
+  }
+}
