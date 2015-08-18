@@ -13,9 +13,7 @@ chrome.runtime.onMessage.addListener(
 	function(request, sender, sendResponse) {
 		if( request.message === "download" ) {
 			// download Instagram image
-			chrome.downloads.download({
-			  url: request.url
-			});
+			chrome.downloads.download({ url: request.url });
 		}
 	}
 );
