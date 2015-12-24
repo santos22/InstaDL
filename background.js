@@ -1,6 +1,6 @@
 // this functions handles the user clicking the button
 chrome.browserAction.onClicked.addListener(function(tab) {
-	// sends a message to the active tab to 
+	// sends a message to active tab
 	chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
 		var reloadTab = tabs[0];
 		chrome.tabs.sendMessage(reloadTab.id, {"message": "clicked_browser_action"});
@@ -12,8 +12,10 @@ chrome.browserAction.onClicked.addListener(function(tab) {
 chrome.runtime.onMessage.addListener(
 	function(request, sender, sendResponse) {
 		if( request.message === "download" ) {
-			// download Instagram image
-			chrome.downloads.download({ url: request.url });
+			// download Instagram photo
+			chrome.downloads.download({
+			  url: request.url
+			});
 		}
 	}
 );
